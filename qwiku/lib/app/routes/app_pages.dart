@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:qwiku/app/modules/admin/bindings/admin_binding.dart';
+import 'package:qwiku/app/modules/admin/views/admin_view.dart';
 import 'package:qwiku/app/modules/home/bindings/home_binding.dart';
 import 'package:qwiku/app/modules/home/views/home_view.dart';
 import 'package:qwiku/app/modules/splash/bindings/splash_binding.dart';
@@ -22,6 +24,11 @@ class AppPages {
       name: _Paths.HOME,
       page: () => HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN,
+      page: () => AdminView(),
+      binding: AdminBinding(),
     ),
   ];
 }

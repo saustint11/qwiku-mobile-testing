@@ -8,6 +8,7 @@ import 'package:qwiku/app/core/theme/app_theme.dart';
 // Views
 import 'package:qwiku/app/modules/splash/views/splash_view.dart';
 import 'package:qwiku/app/modules/home/views/home_view.dart';
+import 'package:qwiku/app/modules/admin/views/admin_view.dart';
 
 QwikUCustomTheme customTheme = QwikUCustomTheme(isDark: false);
 
@@ -28,6 +29,7 @@ class QwikUApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/splash', page: () => SplashView()),
         GetPage(name: '/home', page: () => HomeView()),
+        GetPage(name: '/admin', page: () => AdminView()),
       ],
     );
   }
