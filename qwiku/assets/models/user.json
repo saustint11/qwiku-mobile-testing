@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "user": {
+    "currentUserRole": {
+      "role": "admin",
+      "teamid": "60104b8f1c479b2d626bea74"
+    },
+    "_id": "61001f4569cb32ed371650c3",
+    "email": "austinturner@qwikrecruiting.com",
+    "firstName": "Austin",
+    "lastName": "Turner",
+    "lastLogin": "2021-08-25T13:21:34.704Z",
+    "userRoles": [
+      {
+        "_id": "6101680247bc5f4fc8e40ec3",
+        "role": "admin",
+        "teamid": "60104b8f1c479b2d626bea74"
+      }
+    ],
+    "__v": 0,
+    "videoSettings": {
+      "muteaudio": true,
+      "showannotations": false,
+      "showtrims": true,
+      "playbackstate": 3,
+      "shownotesinfullscreen": true
+    }
+  },
+  "token": "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTAwMWY0NTY5Y2IzMmVkMzcxNjUwYzMiLCJkYXRlIjoiMjAyMS0wOC0yNVQxMzoyMTozNC43NjJaIiwiaWF0IjoxNjI5ODk3Njk0fQ.LXlZiBX6wYsRCz7Xk9IuOL16qlTjaa6nKesefc-bUvU"
+}
