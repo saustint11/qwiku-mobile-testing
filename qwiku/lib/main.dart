@@ -6,9 +6,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:qwiku/app/core/theme/app_theme.dart';
 
 // Views
-import 'package:qwiku/app/modules/splash/views/splash_view.dart';
-import 'package:qwiku/app/modules/home/views/home_view.dart';
-import 'package:qwiku/app/modules/admin/views/admin_view.dart';
+import 'package:qwiku/app/routes/app_pages.dart';
 
 QwikUCustomTheme customTheme = QwikUCustomTheme(isDark: false);
 
@@ -26,11 +24,7 @@ class QwikUApp extends StatelessWidget {
       theme: ThemeData.light().copyWith(primaryColor: Color(0xFF11A70C)),
       defaultTransition: Transition.fade,
       initialRoute: '/splash',
-      getPages: [
-        GetPage(name: '/splash', page: () => SplashView()),
-        GetPage(name: '/home', page: () => HomeView()),
-        GetPage(name: '/admin', page: () => AdminView()),
-      ],
+      getPages: AppPages.routes,
     );
   }
 }

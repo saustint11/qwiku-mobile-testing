@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 
-import '../controllers/splash_controller.dart';
 import 'package:qwiku/app/data/services/user/user_service.dart';
+
+import '../controllers/splash_controller.dart';
 
 class SplashBinding extends Bindings {
   @override

@@ -8,26 +8,13 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('SplashView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'SplashView is working',
-              style: TextStyle(fontSize: 20),
-            ),
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: CircularProgressIndicator(
-                color: Color(0xFF11A70C),
-              ),
-            ),
-          ],
+      body: controller.obx(
+        (state) => Text('Loading..'),
+        onLoading: Center(
+          child: CircularProgressIndicator(),
         ),
+        onEmpty: Text('No data found'),
+        onError: (error) => Text('error message'),
       ),
     );
   }
