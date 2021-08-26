@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
+import 'package:qwiku/app/data/services/user/user_service.dart';
 
 class SplashController extends GetxController {
   //TODO: Implement SplashController
 
-  final count = 0.obs;
+  UserService _userService = Get.put(UserService());
+
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +18,5 @@ class SplashController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
+  // void increment() => count.value++;
 }
