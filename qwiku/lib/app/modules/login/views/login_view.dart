@@ -18,7 +18,7 @@ class LoginView extends GetView<LoginController> {
     return Scaffold(
         body: Stack(children: [
       GreyRadialBackground(
-        color: Colors.grey.shade500,
+        color: Colors.grey.shade600,
         position: "topLeft",
       ),
       Padding(
