@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:qwiku/app/data/services/user/user_service.dart';
 import 'package:qwiku/app/data/classes/user_model.dart';
 
-const baseUrl = 'http://10.0.2.2:8080/api';
-// const baseUrl = 'http://localhost:8080/api'; --> IOS
+// const baseUrl = 'http://10.0.2.2:8080/api'; // Android
+const baseUrl = 'http://192.168.1.39:8080/api'; // IOS
 
 class ApiProvider {
   // final http.Client httpClient;

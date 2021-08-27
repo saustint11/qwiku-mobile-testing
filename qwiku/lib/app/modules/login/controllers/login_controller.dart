@@ -24,8 +24,6 @@ class LoginController extends GetxController {
 
   @override
   void onInit() {
-    emailController.value =
-        TextEditingValue(text: 'austinturner@qwikrecruiting.com');
     super.onInit();
   }
 
@@ -90,6 +88,7 @@ class LoginController extends GetxController {
           print('email: ${emailController.text}');
           print('password: ${passwordController.text}');
           login(emailController.text, passwordController.text);
+          Get.toNamed('/home');
         },
         child: Text('LOGIN'),
       ),
