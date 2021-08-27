@@ -23,6 +23,7 @@ class SettingsView extends GetView<SettingsController> {
             ElevatedButton(
               onPressed: () {
                 Get.toNamed('/login');
+                Get.reloadAll();
               },
               child: Text('Logout'),
             ),
