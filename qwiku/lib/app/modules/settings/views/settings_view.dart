@@ -14,6 +14,7 @@ class SettingsView extends GetView<SettingsController> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
               'SettingsView is working',
