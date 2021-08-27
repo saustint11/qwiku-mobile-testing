@@ -11,7 +11,9 @@ class SplashView extends GetView<SplashController> {
       body: controller.obx(
         (state) => Text('Loading..'),
         onLoading: Center(
-          child: CircularProgressIndicator(),
+          child: CircularProgressIndicator(
+            color: Color(0xFF11A70C),
+          ),
         ),
         onEmpty: Text('No data found'),
         onError: (error) => Text('error message'),

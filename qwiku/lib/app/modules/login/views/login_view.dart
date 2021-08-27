@@ -10,9 +10,9 @@ import 'package:qwiku/app/modules/login/widgets/login_button.dart';
 import 'package:qwiku/app/core/global_widgets/forms/form_input_with_label.dart';
 
 class LoginView extends GetView<LoginController> {
-  TextEditingController _emailController = new TextEditingController();
-  TextEditingController _passController = new TextEditingController();
-  bool obscureText = false;
+  final TextEditingController _emailController = new TextEditingController();
+  final TextEditingController _passController = new TextEditingController();
+  final bool obscureText = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

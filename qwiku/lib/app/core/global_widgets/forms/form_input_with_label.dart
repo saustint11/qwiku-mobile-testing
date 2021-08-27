@@ -75,15 +75,16 @@ class LabelledFormInput extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                   color: Colors.white),
-              filled: false,
+              filled: true,
+              fillColor: Colors.black12,
               enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: Color(0xFF11A70C)),
               ),
               focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white30),
+                borderSide: BorderSide(color: Color(0xFF11A70C)),
               ),
               border: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white30))),
+                  borderSide: BorderSide(color: Color(0xFF11A70C)))),
         ),
       ],
     );
