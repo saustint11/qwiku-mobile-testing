@@ -34,9 +34,7 @@ class LoginView extends GetView<LoginController> {
                     color: Colors.white,
                     fontSize: 40,
                     fontWeight: FontWeight.bold)),
-            SizedBox(
-              height: 20.0,
-            ),
+            AppSpaces.verticalSpace20,
             LabelledFormInput(
               placeholder: "Email",
               keyboardType: "text",
