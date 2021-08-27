@@ -27,10 +27,12 @@ class UserService extends GetxService {
   }
 
   Future<String?> getToken() async {
+    print('Getting user token..');
     try {
       // var token = await _storageProvider.storage.read(key: 'token');
       var token = await _storageProvider.readStorageValue('token');
-      print('Getting user token..');
+      print('token has been read!');
+      print('User Token:\n$token');
       return token;
     } catch (e) {
       print('Error getting user token at getToken()!');

@@ -44,9 +44,9 @@ class StorageProvider extends FlutterSecureStorage {
   }
 
   Future<void> deleteAllStorageValues() async {
+    print('Deleting ALL values from storage..');
     try {
       await storage.deleteAll();
-      print('Deleting ALL values from storage..');
       return print('ALL values have been deleted from storage!');
     } catch (e) {
       print(
@@ -58,10 +58,13 @@ class StorageProvider extends FlutterSecureStorage {
   }
 
   Future<void> writeValueToStorage(String key, String value) async {
+    print('Writing value to key: $key in storage..');
     try {
-      await storage.write(key: key, value: value);
-      print('Writing $value to key: $key in storage..');
-      return print('Key:Value pair specified has been written to storage!');
+      await storage.write(key: key, value: value).then(
+            (value) => print(
+              'Key:Value pair specified has been written to storage!',
+            ),
+          );
     } catch (e) {
       print('Caught error at storage_provider method: writeValueToStorage()');
       print('---------------------ERROR CAUGHT--------------------------');

@@ -1,11 +1,9 @@
 import 'dart:convert';
 
-import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
 
-import 'package:qwiku/app/data/classes/user_model.dart';
 import 'package:qwiku/app/data/services/user/user_service.dart';
+import 'package:qwiku/app/data/classes/user_model.dart';
 
 const baseUrl = 'http://10.0.2.2:8080/api';
 // const baseUrl = 'http://localhost:8080/api'; --> IOS
@@ -63,20 +61,23 @@ class ApiProvider {
     return null;
   }
 
-  Future<dynamic> authenticateUser(String email, String password) async {
+  Future<Users?> authenticateUser(String email, String password) async {
     const url = '$baseUrl/users/authenticate';
     const headers = _defaultHeaders;
     var body = jsonEncode({'email': '$email', 'password': '$password'});
 
     try {
-      var response = await http.post(
+      final response = await http.post(
         Uri.parse(url),
         headers: headers,
         body: body,
       );
+      print('at authenticateUser() in api_provider');
 
       if (response.statusCode == 200) {
-        var data = jsonDecode(response.body);
+        var data = Users.fromJson(jsonDecode(response.body));
+        print('response was good, return data!');
+        print(data);
         return data;
       } else {
         print('There was an error running authenticateUser()');
@@ -85,6 +86,7 @@ class ApiProvider {
     } catch (e) {
       print(e);
     }
+    return null;
   }
 
   // Future<List<User>?> getAll() async {

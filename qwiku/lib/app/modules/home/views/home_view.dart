@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
-import 'package:qwiku/app/core/global_widgets/alerts/show_alert_dialogue.dart';
-import 'package:qwiku/app/modules/home/widgets/navigation/nav_drawer.dart';
-
 import '../controllers/home_controller.dart';
+
+import 'package:qwiku/app/core/global_widgets/navigation/nav_drawer.dart';
 
 class HomeView extends GetView<HomeController> {
   @override

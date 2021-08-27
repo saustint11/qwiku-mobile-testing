@@ -23,7 +23,7 @@ class QwikUApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: customTheme.themeData,
       defaultTransition: Transition.fade,
-      initialRoute: '/home',
+      initialRoute: '/splash',
       getPages: AppPages.routes,
     );
   }
