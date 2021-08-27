@@ -1,7 +1,8 @@
 import 'dart:convert';
+
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
-import 'package:get/get.dart';
 
 import 'package:qwiku/app/data/classes/user_model.dart';
 import 'package:qwiku/app/data/services/user/user_service.dart';
@@ -10,9 +11,9 @@ const baseUrl = 'http://10.0.2.2:8080/api';
 // const baseUrl = 'http://localhost:8080/api'; --> IOS
 
 class ApiProvider {
-  final http.Client httpClient;
-
-  ApiProvider({required this.httpClient});
+  // final http.Client httpClient;
+  //
+  // ApiProvider({required this.httpClient});
 
   UserService userService = UserService();
 
@@ -43,7 +44,7 @@ class ApiProvider {
 
     try {
       var headers = await getHeaders();
-      var response = await httpClient.get(
+      var response = await http.get(
         Uri.parse(url),
         headers: headers,
       );
@@ -65,10 +66,14 @@ class ApiProvider {
   Future<dynamic> authenticateUser(String email, String password) async {
     const url = '$baseUrl/users/authenticate';
     const headers = _defaultHeaders;
+    var body = jsonEncode({'email': '$email', 'password': '$password'});
 
     try {
-      var response = await httpClient
-          .post(Uri.parse(url), headers: headers, body: {email, password});
+      var response = await http.post(
+        Uri.parse(url),
+        headers: headers,
+        body: body,
+      );
 
       if (response.statusCode == 200) {
         var data = jsonDecode(response.body);

@@ -21,9 +21,9 @@ class QwikUApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(primaryColor: Color(0xFF11A70C)),
+      theme: customTheme.themeData,
       defaultTransition: Transition.fade,
-      initialRoute: '/splash',
+      initialRoute: '/home',
       getPages: AppPages.routes,
     );
   }

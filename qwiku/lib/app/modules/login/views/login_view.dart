@@ -1,69 +1,49 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:qwiku/app/core/global_widgets/spacing/app_spacing.dart';
+
+import 'package:qwiku/app/core/global_widgets/images/logo_container.dart';
 
 import '../controllers/login_controller.dart';
 
-import 'package:google_fonts/google_fonts.dart';
-import 'package:qwiku/app/core/global_widgets/backgrounds/radial_background.dart';
-import 'package:qwiku/app/modules/login/widgets/login_button.dart';
-import 'package:qwiku/app/core/global_widgets/forms/form_input_with_label.dart';
-
 class LoginView extends GetView<LoginController> {
-  final TextEditingController _emailController = new TextEditingController();
-  final TextEditingController _passController = new TextEditingController();
-  final bool obscureText = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(children: [
-      GreyRadialBackground(
-        color: Colors.grey.shade600,
-        position: "topLeft",
-      ),
-      Padding(
-        padding: EdgeInsets.all(20.0),
+      backgroundColor: Colors.white,
+      body: SingleChildScrollView(
         child: SafeArea(
+          child: Form(
+            key: controller.loginFormKey,
             child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // NavigationBack(),
-            SizedBox(height: 40),
-            Text('Login',
-                style: GoogleFonts.lato(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold)),
-            AppSpaces.verticalSpace20,
-            LabelledFormInput(
-              placeholder: "Email",
-              keyboardType: "text",
-              obscureText: false,
-              controller: _emailController,
-              label: "Your Email",
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                // Logo Container
+                buildLogoContainer(),
+                // Email Text Field
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: controller.buildEmailTextFieldWithPadding(),
+                ),
+                // Password Text Field
+                Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: controller.buildPasswordTextFieldWithPadding(),
+                ),
+                // Show/Hide Password button
+                controller.buildShowHidePasswordButton(),
+
+                /// Login Button (Elevated Button)
+                controller.buildLoginButton(),
+
+                /// Forgot Password Button
+                controller.buildForgotPasswordButton(),
+              ],
             ),
-            AppSpaces.verticalSpace10,
-            LabelledFormInput(
-              placeholder: "Password",
-              keyboardType: "text",
-              controller: _passController,
-              obscureText: obscureText,
-              label: "Your Password",
-            ),
-            AppSpaces.verticalSpace20,
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: ElevatedButton(
-                  onPressed: () {},
-                  style: LoginButtonStyles.greenRounded,
-                  child: Text('Sign In',
-                      style:
-                          GoogleFonts.lato(fontSize: 20, color: Colors.white))),
-            )
-          ],
-        )),
-      )
-    ]));
+          ),
+        ),
+      ),
+    );
   }
 }
