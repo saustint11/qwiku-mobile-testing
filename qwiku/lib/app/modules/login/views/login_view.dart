@@ -1,70 +1,71 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:qwiku/app/core/global_widgets/spacing/app_spacing.dart';
 
 import '../controllers/login_controller.dart';
-import 'package:email_validator/email_validator.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+import 'package:qwiku/app/core/global_widgets/backgrounds/radial_background.dart';
+import 'package:qwiku/app/modules/login/widgets/login_button.dart';
+import 'package:qwiku/app/core/global_widgets/forms/form_input_with_label.dart';
 
 class LoginView extends GetView<LoginController> {
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _passController = new TextEditingController();
+  bool obscureText = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              /// Logo should go here
-              Placeholder(
-                fallbackHeight: 300.0,
-                fallbackWidth: 300.0,
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    hintText: 'Enter your email',
-                    labelText: 'Email',
-                    labelStyle: TextStyle(
-                      color: Colors.lightGreen,
-                    ),
-                  ),
-                  onChanged: (value) {
-                    /// do something with email input
-                  },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(10.0),
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Enter your password',
-                    labelText: 'Password',
-                    labelStyle: TextStyle(
-                      color: Colors.lightGreen,
-                    ),
-                  ),
-                  onChanged: (value) {
-                    /// do something with password input
-                  },
-                ),
-              ),
-              SizedBox(
-                height: 10.0,
-              ),
-              ElevatedButton(
-                style: ButtonStyle(),
-                onPressed: () {},
-                child: Text('Login'),
-              ),
-            ],
-          ),
-        ),
+        body: Stack(children: [
+      GreyRadialBackground(
+        color: Colors.grey.shade500,
+        position: "topLeft",
       ),
-    );
+      Padding(
+        padding: EdgeInsets.all(20.0),
+        child: SafeArea(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // NavigationBack(),
+            SizedBox(height: 40),
+            Text('Login',
+                style: GoogleFonts.lato(
+                    color: Colors.white,
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold)),
+            SizedBox(
+              height: 20.0,
+            ),
+            LabelledFormInput(
+              placeholder: "Email",
+              keyboardType: "text",
+              obscureText: false,
+              controller: _emailController,
+              label: "Your Email",
+            ),
+            AppSpaces.verticalSpace10,
+            LabelledFormInput(
+              placeholder: "Password",
+              keyboardType: "text",
+              controller: _passController,
+              obscureText: obscureText,
+              label: "Your Password",
+            ),
+            AppSpaces.verticalSpace20,
+            Container(
+              width: double.infinity,
+              height: 60,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  style: LoginButtonStyles.greenRounded,
+                  child: Text('Sign In',
+                      style:
+                          GoogleFonts.lato(fontSize: 20, color: Colors.white))),
+            )
+          ],
+        )),
+      )
+    ]));
   }
 }
