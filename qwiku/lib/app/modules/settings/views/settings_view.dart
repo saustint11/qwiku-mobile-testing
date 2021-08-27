@@ -13,9 +13,19 @@ class SettingsView extends GetView<SettingsController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'SettingsView is working',
-          style: TextStyle(fontSize: 20),
+        child: Column(
+          children: <Widget>[
+            Text(
+              'SettingsView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.toNamed('/login');
+              },
+              child: Text('Logout'),
+            ),
+          ],
         ),
       ),
     );
